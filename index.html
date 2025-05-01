@@ -1,0 +1,287 @@
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港美食之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Noto Sans HK', sans-serif;
+        }
+
+        body {
+            background: url('/pexels-airamdphoto-3391830.jpg') no-repeat center/cover fixed;
+            color: #333;
+        }
+
+        /* 側邊選單 */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #c8102e;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.8; /* 設定透明度為 80% */
+        }
+
+        .sidebar:hover {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            background: #ffd700;
+            color: #c8102e;
+        }
+
+        /* 選單標誌 */
+        .sidebar::before {
+            content: '☰';
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            font-size: 30px;
+            color: #c8102e;
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 主內容 */
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: url('https://images.unsplash.com/photo-1586790170083-2f9bd472c6a6') no-repeat center/cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* 美食卡片 */
+        .food-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+        }
+
+        .food-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+            opacity: 1; /* 滑鼠懸停時恢復透明度 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-card h3 {
+            padding: 15px;
+            font-size: 24px;
+            color: #c8102e;
+        }
+
+        .food-card p {
+            padding: 0 15px 15px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* 香港風格元素 */
+        .hongkong-style {
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            background: #fff5e6;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            opacity: 0.7; /* 設定透明度為 70% */
+            transition: opacity 0.3s;
+        }
+
+        .hongkong-style:hover {
+            opacity: 1; /* 滑鼠懸停時恢復透明度 */
+        }
+        .hongkong-style h2 {
+            font-size: 28px;
+            color: #c8102e;
+            margin-bottom: 10px;
+        }
+        .hongkong-style p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .hongkong-style::before {
+            content: '香港';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #c8102e;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 側邊選單 -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#hongkongisland">港島</a></li>
+            <li><a href="#kowloon">九龍</a></li>
+            <li><a href="#newterritories">新界</a></li>
+            <li><a href="#outlyingislands">離島</a></li>
+            <li><a href="#contact">聯繫我們</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主內容 -->
+    <div class="main-content">
+        <header id="home">
+            <h1>香港美食之旅</h1>
+            <p>探索香港不同地區的美食文化，感受城市獨特的味道！</p>
+        </header>
+
+        <section id="hongkongisland" class="hongkong-style">
+            <h2>港島</h2>
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1618213915786-a8fa89699994" alt="蝦餃">
+                    <h3>蝦餃</h3>
+                    <p>在中環的茶樓，品嚐晶瑩剔透的蝦餃，鮮甜的蝦肉令人垂涎。</p>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1627286704052-6564cdfb7630" alt="芒果班戟">
+                    <h3>芒果班戟</h3>
+                    <p>銅鑼灣的甜品店提供香甜芒果班戟，軟滑鮮奶油令人滿足。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kowloon" class="hongkong-style">
+            <h2>九龍</h2>
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1598961942503-00099d73373e" alt="魚蛋">
+                    <h3>咖喱魚蛋</h3>
+                    <p>旺角街頭的咖喱魚蛋，彈牙魚蛋配香辣醬汁，是九龍的經典小食。</p>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1623667135240-83e9bdc30f2d" alt="燒賣">
+                    <h3>燒賣</h3>
+                    <p>油麻地的茶餐廳供應鮮肉燒賣，蟹籽點綴，口感豐富。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="newterritories" class="hongkong-style">
+            <h2>新界</h2>
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1605406729551-6eb0549945ae" alt="腸粉">
+                    <h3>腸粉</h3>
+                    <p>沙田的街市小攤販賣軟滑腸粉，甜醬與芝麻增添風味。</p>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1618213928944-9c1e8e6b8f1c" alt="楊枝甘露">
+                    <h3>楊枝甘露</h3>
+                    <p>荃灣甜品店的楊枝甘露，清新芒果與西柚組合，消暑一流。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="outlyingislands" class="hongkong-style">
+            <h2>離島</h2>
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1576092760004-590fbe34c9b7" alt="海鮮">
+                    <h3>海鮮大餐</h3>
+                    <p>長洲的海鮮餐廳提供新鮮龍蝦和椒鹽瀨尿蝦，滋味無窮。</p>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1590412200988-17d3e8f58756" alt="魚蛋粉">
+                    <h3>魚蛋粉</h3>
+                    <p>大嶼山的魚蛋粉，湯底鮮甜，魚蛋彈牙，簡單卻美味。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="hongkong-style">
+            <h2>聯繫我們</h2>
+            <p>想了解更多香港美食資訊？請透過電郵聯繫我們：info@hkfoodie.com</p>
+        </section>
+    </div>
+</body>
+</html>
